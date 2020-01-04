@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>电影</title>
+		<script src="js/jquery-3.1.1.js"></script>
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<script src="js/jquery.seat-charts.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="js/jquery.tmpl.js"></script>
+		<script src="layDate-v5.0.9/laydate/laydate.js"></script>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/movie.css" />
+		<link rel="stylesheet" href="css/alert.css" />
+		<link rel="stylesheet" href="css/footer.css" />
+		<link rel="stylesheet" href="css/top.css" />
+	</head>
+
+	<body>
+		<div class="g-main">
+			<!--导航-->
+			<div class="m-nav">
+				<!--logo标志-->
+				<div class="u-logo">
+					<span class="logo1">M</span>
+					<span class="logo2">ovies</span>
+					<span class="logo1">P</span>
+					<span class="logo2">ro</span>
+				</div>
+				<ul>
+					<li>
+						<a href="home.html">主页</a>
+					</li>
+					<li class="active">
+						<a href="movie.html">电影</a>
+						<div class="u-menu1">
+							<a href="moviekind.html">分类</a>
+						</div>
+					</li>
+					<li>
+						<a href="cinema.html">影院</a>
+					</li>
+					<li>
+						<a href="music.html">音乐</a>
+					</li>
+					<li>
+						<a href="contact.html">联系我们</a>
+					</li>
+					<li>
+						<div id="userarea">
+							<img src="imgs/home/photo1.png" alt="" />
+							<a href="user.html">User</a>
+						</div>					
+						<div class="u-menu">
+							<a href="user.html">个人中心</a>
+							<a href="javascript:" id="exit">退出登录</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<!--头部-->
+			<ul class="lists" id="lists"></ul>
+			<!--新建模板-->
+			<script id="lists1" type="text/x-jquery-tmpl">
+				<li class="movieimg" id="${id}">
+					<img src="${src}"/>
+					<span>${name}</span>
+					<span>评分：${score}</span>
+				</li>
+			</script>
+			
+			<div class="m-header" id="headerinfo"></div>
+			<!--新建模板-->
+			<script id="headerinfo1" type="text/x-jquery-tmpl">
+				
+				<!--背景-->
+				<img src="${src}"/>
+				<span></span>
+				
+				<!--左侧-->
+				<div class="m-left">
+					<p>${year}</p>
+					<h3>${name}</h3>
+					<p>${kinds}</p>
+					<p>评分：<span>${score}</span></p>
+				</div>
+				
+			</script>
+
+
+
+			<!--主体-->
+			<div class="demo">
+				
+				<div id="seat-map">
+					<div class="front">
+						<h3>屏幕</h3>
+						<img src="imgs/movie/Screen.png" alt="" />
+					</div>
+				</div>
+				
+				<div class="booking-details">
+					<p>影片：<span id="moviename">复仇者联盟4：终局之战</span></p>
+					<p>时间：
+						<i class="fa fa-calendar-times-o"></i>
+						<br />
+						<input type="text" id="cal" placeholder="请选择日期："/>
+						<br />
+						<input type="button" value="9:30"/ class="time">
+						<input type="button" value="11:30"/ class="time">
+						<input type="button" value="13:30"/ class="time">
+						<input type="button" value="15:30"/ class="time">
+						<input type="button" value="17:30"/ class="time">
+						<input type="button" value="19:30"/ class="time">
+						<input type="button" value="21:30"/ class="time">
+						<input type="button" value="23:30"/ class="time">
+						<input type="button" value="1:30"/ class="time">
+					</p>
+					<br />
+					<p>座位：</p>
+					<ul id="selected-seats"></ul>
+					<p>票数：<span id="counter">0</span></p>
+					<p>总计：<b>￥<span id="total">0</span></b></p>
+
+					<button class="checkout-button" id="buy">确定选座</button>
+					
+					<div id="legend"></div>
+				</div>
+				
+				<!--付费-->
+			 	<ul class="pay">
+			 		<li class="cardinfo">
+			 			<h3>影城卡</h3>
+			 			<img src="imgs/movie/card.png" alt="" />
+			 			<p>
+			 				<input type="button" value="12.9季卡" class="card"/>
+			 				<input type="button" value="19.9半年卡" class="card"/>
+			 			</p>			 			
+			 			<span class="no">不想购票?<a href="watch.html">在线观看</a></span>
+			 		</li>
+			 	</ul>
+				<button class="enter">进入购物车</button>
+			</div>
+			
+			
+			
+			<!--介绍信息-->
+			<div class="info">
+				
+				<!--中间-->
+				<div class="m-video">
+			 		<video src="imgs/video/X战警.mp4"  loop="loop" id="video" autoplay="autoplay"></video>
+			 		<br />
+			 		<div class="playline">
+			 		</div>
+			 		<div class="controllers">
+			 			<i class="fa fa-play" id="play"></i>
+			 			<i class="fa fa-pause" id="pause"></i>
+			 			<i class="fa fa-arrows-alt" id="alt"></i>
+			 		</div>
+			 	</div>
+			 	
+			</div>
+			
+			
+			
+			<!--底部-->
+			<div class="m-footer">
+				<h3>Record Farm</h3>
+				<span>ⓒ2019 Recordfarm Inc.</span>
+				<a href="javascript:">关于我们</a>
+				<a href="javascript:">隐私</a>
+				<a href="javascript:">服务条款</a>
+				<a href="javascript:">cookie</a>
+				<a href="javascript:">版权保护政策</a>
+				<a href="javascript:">广告投递</a>
+				<a href="javascript:">背景</a>
+			</div>
+			
+			<!--回到顶部-->
+			<i class="fa fa-chevron-up" id="top"></i>
+
+		</div>
+	</body>
+	<script src="js/alert.js"></script>
+	<script src="js/users.js"></script>
+	<script src="js/movie.js"></script>
+	<script src="js/top.js"></script>
+</html>

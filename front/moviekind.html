@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+		<script src="js/jquery-3.1.1.js"></script>
+		<script src="js/jquery.tmpl.js"></script>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/nav.css"/>
+		<link rel="stylesheet" href="css/top.css" />
+		<link rel="stylesheet" href="css/moviekind.css" />
+		<link rel="stylesheet" href="css/footer.css" />
+		<link rel="stylesheet" href="css/alert.css" />
+		<title>分类</title>
+	</head>
+	<body>
+		<div class="g-main">
+			
+		<!--导航-->
+		<div class="m-nav">
+			<!--logo标志-->
+			<div class="u-logo">
+				<span class="logo1">M</span>
+				<span class="logo2">ovies</span>
+				<span class="logo1">P</span>
+				<span class="logo2">ro</span>
+			</div>
+			<ul>
+				<li><a href="home.html">主页</a></li>
+				<li class="active">
+					<a href="movie.html">电影</a>
+					<div class="u-menu1">
+						<a href="moviekind.html">分类</a>
+					</div>
+				</li>
+				<li><a href="cinema.html">影院</a></li>
+				<li>
+					<a href="music.html">音乐</a>
+				</li>
+				<li><a href="contact.html">联系我们</a></li>
+				<li>
+					<div id="userarea">
+						<img src="imgs/home/photo1.png" alt="" />
+						<a href="user.html">User</a>
+					</div>					
+					<div class="u-menu">
+						<a href="user.html">个人中心</a>
+						<a href="javascript:" id="exit">退出登录</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+			
+		<!--头部-->
+		<div class="m-slide">
+			
+			<!--轮播框-->
+			<div class="m-pics" id="pics">
+				<!--轮播-->
+				
+			</div>
+			<!--新建模板-->
+			<script id="slideImgs" type="text/x-jquery-tmpl">
+				<img src="${imgpath}" class="img">
+			</script>
+			
+			<!--指示按钮-->
+			<div class="buttons">
+	            <span class="on"></span>
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	        </div>
+	        
+			<!--指示箭头-->
+			<a href="javascript:" class="u-arrow u-arrow-left" id="pre">&lt;</a>
+			<a href="javascript:" class="u-arrow u-arrow-right" id="next">&gt;</a>
+			
+		</div>
+			
+			<!--主体-->
+			<div class="m-main">
+				<div class="index">
+					<ul>
+						<li>
+							<span>按字母：</span>
+							<span>全部</span>
+							<span>A</span>
+							<span>B</span>
+							<span>C</span>
+							<span>D</span>
+							<span>E</span>
+							<span>F</span>
+							<span>G</span>
+							<span>H</span>
+							<span>I</span>
+							<span>J</span>
+							<span>K</span>
+							<span>L</span>
+							<span>M</span>
+							<span>N</span>
+							<span>O</span>
+							<span>P</span>
+							<span>Q</span>
+							<span>R</span>
+							<span>S</span>
+							<span>T</span>
+							<span>U</span>
+							<span>V</span>
+							<span>W</span>
+							<span>X</span>
+							<span>Y</span>
+							<span>Z</span>
+						</li>
+						<li>
+							<span>按地区：</span>
+							<span>全部</span>
+							<span>国产</span>
+							<span>欧美</span>
+							<span>日本</span>
+							<span>韩国</span>
+							<span>印度</span>
+							<span class="last">其他地区</span>
+						</li>
+						<li>
+							<span>按年份：</span>
+							<span>全部</span>
+							<span>2019</span>
+							<span>2018</span>
+							<span>2017</span>
+							<span>2016</span>
+							<span>2015</span>
+							<span>2014</span>
+							<span>2013</span>
+							<span>2012</span>
+							<span>2011</span>
+							<span>2010</span>
+							<span>2009</span>
+							<span>2008</span>
+							<span>2007</span>
+							<span>2006</span>
+							<span>2005</span>
+							<span>2004</span>
+							<span>2003</span>
+							<span>2002</span>
+							<span>2001</span>
+							<span>2000</span>
+							<span class="last">2000以前</span>
+						</li>
+						<li>
+							<span>按类型：</span>
+							<span>全部</span>
+							<span>动作</span>
+							<span>喜剧</span>
+							<span>爱情</span>
+							<span>剧情</span>
+							<span>恐怖</span>
+							<span>综艺</span>
+							<span class="last">电视剧</span>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="show">
+					<ul id="show"></ul>
+					<!--新建模板-->
+					<script id="show1" type="text/x-jquery-tmpl">
+						<li>
+							<input type="hidden" id="${id}" />
+							<img src="${imgsrc}" alt="" />
+							<i class="movie">
+								<i class="fa fa-play-circle watch"></i>
+								<i class="fa fa-heart-o like"></i>
+								<i class="fa fa-cart-plus buy"></i>
+							</i>
+							<a href="javascript:">${name}</a>
+							<span>主演：${actors}</span>
+						</li>
+					</script>
+				</div>
+				
+				<!--翻页-->
+				<div class="page">
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>下一页</span>
+				</div>
+				
+				<!--底部-->
+				<div class="m-footer">
+					<h3>Record Farm</h3>
+					<span>ⓒ2019 Recordfarm Inc.</span>
+					<a href="javascript:">关于我们</a>
+					<a href="javascript:">隐私</a>
+					<a href="javascript:">服务条款</a>
+					<a href="javascript:">cookie</a>
+					<a href="javascript:">版权保护政策</a>
+					<a href="javascript:">广告投递</a>
+					<a href="javascript:">背景</a>
+				</div>
+				
+			</div>
+			
+			<!--回到顶部-->
+			<i class="fa fa-chevron-up" id="top"></i>
+			
+				
+		</div>
+	</body>
+	<script src="js/users.js"></script>
+	<script src="js/moviekind.js"></script>
+	<script src="js/slide.js"></script>
+	<script src="js/alert.js"></script>
+	<script src="js/top.js"></script>
+</html>

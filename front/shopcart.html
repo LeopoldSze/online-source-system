@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="js/jquery-3.1.1.js"></script>
+	<script src="js/jquery.tmpl.js"></script>
+	<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="css/common.css"/>
+	<link rel="stylesheet" href="css/nav.css" />
+	<link rel="stylesheet" href="css/alert.css" />
+	<link rel="stylesheet" href="css/footer.css" />
+	<link rel="stylesheet" href="css/shopcart.css"/>
+	<link rel="stylesheet" href="css/alert.css" />
+	<title>购物车</title>
+</head>
+<body>
+	<div class="g-main">
+		
+		<!--导航-->
+		<div class="m-nav">
+			<!--logo标志-->
+			<div class="u-logo">
+				<span class="logo1">M</span>
+				<span class="logo2">ovies</span>
+				<span class="logo1">P</span>
+				<span class="logo2">ro</span>
+			</div>
+			<ul>
+				<li><a href="home.html">主页</a></li>
+				<li>
+					<a href="movie.html">电影</a>
+					<div class="u-menu1">
+						<a href="moviekind.html">分类</a>
+					</div>
+				</li>
+				<li><a href="cinema.html">影院</a></li>
+				<li>
+					<a href="music.html">音乐</a>
+				</li>
+				<li><a href="contact.html">联系我们</a></li>
+				<li class="active">
+					<div id="userarea">
+						<img src="imgs/home/photo1.png" alt="" />
+						<a href="user.html">User</a>
+					</div>					
+					<div class="u-menu">
+						<a href="user.html">个人中心</a>
+						<a href="javascript:" id="exit">退出登录</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<!--主体-->
+		<div class="m-main">
+			
+			<!--顶部-->
+			<div class="top">
+				<img src="imgs/shopcart/logo.png" alt="" />
+				<h1>购物车</h1>
+				<input type="text" id="search"/>
+				<i class="fa fa-search fa-2x" id="fa"></i>
+				<div class="titles">
+					<input type="checkbox" class="choose chooseAll" />&nbsp;&nbsp;&nbsp;&nbsp;全选
+					<span>商品</span>
+					<span>单价</span>
+					<span>数量</span>
+					<span>小计</span>
+					<span>操作</span>
+				</div>
+			</div>
+			
+			<!--中间-->
+			<div class="main" id="main">
+			</div>
+			<!--电影票模板-->
+			<script id="moviesinfo" type="text/x-jquery-tmpl">
+				<ul class="goods movies">
+					<li><input type="checkbox" class="choose chooseOne" id="${gid}"/></li>
+					<li><img src="${movieimg}" alt="" /></li>
+					<li>
+						<a href="javascript:;" class="names">${moviename}</a>
+						<span>${seats}</span>
+					</li>
+					<li>
+						<span>￥</span>
+						<span class="money">${parseInt(money)/parseInt(tickets)}</span>
+					</li>
+					<li>
+						<input type="text" class="num1" value="${tickets}" readonly="readonly"/>
+					</li>
+					<li>
+						<span class="price">${money}</span>
+					</li>
+					<li>
+						<input type="button" value="删除" class="del" />
+					</li>
+				</ul>
+				
+			</script>
+			
+			<!--影城卡模板-->
+			<script id="cardinfo" type="text/x-jquery-tmpl">
+				
+				<ul class="goods cards">
+					<li><input type="checkbox" class="choose chooseOne" id="${gid}"/></li>
+					<li><img src="${cardimg}" alt="" /></li>
+					<li><a href="javascript:;" class="names">${cardinfo}</a></li>
+					<li>
+						<span>￥</span>
+						<span class="money">${cardprice}</span>
+					</li>
+					<li>
+						<input type="text" class="num1" value="1" readonly="readonly"/>
+					</li>
+					<li>
+						<span class="price">${cardprice}</span>
+					</li>
+					<li>
+						<input type="button" value="删除" class="del" />
+					</li>
+				</ul>
+				
+			</script>
+			
+			<!--会员卡模板-->
+			<script id="vipinfo" type="text/x-jquery-tmpl">
+				
+				<ul class="goods vips">
+					<li><input type="checkbox" class="choose chooseOne" id="${gid}"/></li>
+					<li><img src="${vipimg}" alt="" /></li>
+					<li><a href="javascript:;" class="names">${vipinfo}</a></li>
+					<li>
+						<span>￥</span>
+						<span class="money">${vipprice}</span>
+					</li>
+					<li>
+						<input type="text" id="num1" value="1" readonly="readonly"/>
+					</li>
+					<li>
+						<span class="price">${vipprice}</span>
+					</li>
+					<li>
+						<input type="button" value="删除" class="del" />
+					</li>
+				</ul>
+				
+			</script>
+			
+			<!--加购模板-->
+			<script id="shopinfo" type="text/x-jquery-tmpl">
+				
+				<ul class="goods sources">
+					<li><input type="checkbox" class="choose chooseOne" id="${gid}"/></li>
+					<li><img src="${src}" alt="" /></li>
+					<li><a href="javascript:;" class="names">${name}</a></li>
+					<li>
+						<span>￥</span>
+						<span class="money">${price}</span>
+					</li>
+					<li>
+						<input type="text" id="num1" value="1" readonly="readonly"/>
+					</li>
+					<li>
+						<span class="price">${price}</span>
+					</li>
+					<li>
+						<input type="button" value="删除" class="del" />
+					</li>
+				</ul>
+				
+			</script>
+			
+				
+			<!--下部-->
+			<div class="bottom">
+				<input type="checkbox" name="" class="choose chooseAll"/>&nbsp;&nbsp;&nbsp;&nbsp;全选
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" id="delAll" value="删除选中的物品"/>
+				<span>已选择</span>
+				<span id="num"></span>
+				<span>件物品</span>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>总价：</span>
+				<span id="totalprice"></span>
+				<button id="check">去结算</button>
+			</div>
+		</div>
+		
+		<!--底部-->
+		<div class="m-footer">
+			<h3>Record Farm</h3>
+			<span>ⓒ2019 Recordfarm Inc.</span>
+			<a href="javascript:">关于我们</a>
+			<a href="javascript:">隐私</a>
+			<a href="javascript:">服务条款</a>
+			<a href="javascript:">cookie</a>
+			<a href="javascript:">版权保护政策</a>
+			<a href="javascript:">广告投递</a>
+			<a href="javascript:">背景</a>
+		</div>
+		
+	</div>
+</body>
+<script src="js/users.js"></script>
+<script src="js/alert.js"></script>
+<script src="js/shopcart.js"></script>
+<script src="js/alert.js"></script>
+<script src="js/users.js"></script>
+</html>

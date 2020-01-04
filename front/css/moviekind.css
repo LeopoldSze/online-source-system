@@ -1,0 +1,208 @@
+.g-main{
+	position: relative;
+}
+
+
+/*轮播图*/
+.m-slide{
+	width: 100%;
+	height: 500px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	overflow: hidden;
+}
+.m-pics{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.m-pics img{
+	width: 100%;
+	height: 100%;
+	opacity: 0.9;
+}
+
+
+/*下方按钮*/
+.buttons {
+    position: absolute;
+    left: 33%;
+    bottom: 20%;
+    width: 50%;
+    height: 5px;
+    z-index: 1;
+}
+.buttons span {
+    margin-left: 4%;
+    display: inline-block;
+    width: 7%;
+    height: 5px;
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buttons span.on{
+	background: #02A388;
+}
+
+
+/*指示箭头*/
+.u-arrow{
+	font-size: 70px;
+	font-weight: bold;
+	color: #02A388;
+	opacity: 0.7;
+	z-index: 2;
+	position: absolute;
+	top: 45%;
+	display: none;
+}
+.u-arrow-left{	
+	left: 5%;
+}
+.u-arrow-right{
+	right: 5%;
+}
+.m-slide:hover .u-arrow{
+	display: block;
+}
+
+
+
+/*分类*/
+.m-main{
+	width: 94%;
+	margin: 20px auto;
+}
+.index ul{
+	width: 100%;
+	height: 300px;
+	margin-top: 10px;
+	background: #eee;
+}
+.index ul li{
+	width: 100%;
+	height: 75px;
+	line-height: 75px;
+}
+.index ul li span{
+	display: inline-block;
+	width: 3%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.index ul li span:first-of-type{
+	width: 5%;
+	color: #fff;
+	border-radius: 10%;
+	background: #02A388;
+	margin-left: 3%;
+}
+.index .last{
+	width: 5%;
+}
+.index ul li span:hover{
+	border-radius: 10%;
+	background: #02A388;
+	color: #fff;
+	cursor: pointer;
+}
+.index ul li span.on{
+	border-radius: 10%;
+	background: #02A388;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+
+
+
+.show{
+	width: 100%;
+	margin-top: 30px;
+	background: #eee;
+	padding: 30px 0px;
+}
+.show ul{
+	width: 94%;
+	height: 1600px;
+	margin: 0px 3%;
+	
+}
+.show ul li{
+	width: 15%;
+	float: left;
+	height: 290px;
+	margin: 15px 2%;
+	margin-left: 2.7%;
+	border: 1px solid #000;
+	position: relative;
+	cursor: pointer;
+}
+.show ul li img{
+	width: 100%;
+	height: 230px;
+}
+.show ul li a,
+.show ul li span{
+	font-size: 14px;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	height: 25px;
+	line-height: 25px;
+}
+.show ul li a{
+	color: #02A388;
+}
+.show ul li span{
+	color: #666;
+}
+.movie{
+	width: 100%;
+	height: 230px;
+	font-size: 30px;
+	color: #fff;
+	opacity: 0.5;
+	background: #000;
+	position: absolute;
+	top: 0px;
+	display: none;
+}
+.movie i{
+	float: left;
+	margin-top: 95%;
+	margin-left: 15%;
+}
+.show ul li:hover .movie{
+	display: block;
+}
+.page{
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	margin-top: 30px;
+}
+.page span{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #888;
+	cursor: pointer;
+	margin: 10px 1%;
+}
+.page span:first-child{
+	background: #02A388;
+	color: #fff;
+}
+.page span:last-child{
+	width: 80px;
+}
+
+#top{
+	color: #313131;
+}

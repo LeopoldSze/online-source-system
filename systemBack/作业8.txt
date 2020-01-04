@@ -1,0 +1,14 @@
+作业：
+1 利用springboot建立web项目
+
+用户管理项目
+
+	用户类：id,name,,pass,gender,salary
+
+添加用户：测试
+显示用户：测试  controller
+根据用户的编号进行查询  测试  controller
+根据编号删除：测试，controller
+更新：测试
+
+

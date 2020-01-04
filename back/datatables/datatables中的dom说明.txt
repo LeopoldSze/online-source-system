@@ -1,0 +1,16 @@
+Dom说明
+定义表格控件在页面的显示顺序。
+每个控件元素在数据表都有一个关联的单个字母。
+l - 每页显示行数的控件
+f - 检索条件的控件
+t - 表格控件
+i - 表信息总结的控件
+p - 分页控件
+r - 处理中的控件
+
+<link rel="stylesheet" type="text/css" href="datatables/css/jquery.dataTables-1.10.13.css">
+	<!-- 与bootstrap整合的样式 -->
+	<link rel="stylesheet" type="text/css" href="datatables/css/dataTables.bootstrap-1.10.13.css" />
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="datatables/js/jquery.dataTables-1.10.13.js"></script>
+	<script type="text/javascript" src="datatables/js/dataTables.bootstrap-1.10.13.js"></script>

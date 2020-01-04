@@ -1,0 +1,162 @@
+/*主体及标题*/
+.g-main{
+	width: 100%;
+	height: 750px;
+	background: url(../imgs/signin/bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0px auto;
+	border-radius: 10px;
+	position: relative;
+}
+.g-main h3{
+	font-size: 60px;
+	font-family:"arial black";
+	text-align: center;
+	letter-spacing: 10px;
+	padding-top: 50px;
+	margin-bottom: 70px;
+	text-shadow: 15px -10px 5px #CCCCCC;
+}
+
+
+
+
+
+/*icon*/
+#area{
+	width: 50px;
+	height: 30px;
+	border: 2px solid #ac9455;
+	border-radius: 10px;
+	position: absolute;
+	right: 110px;
+	display: none;
+}
+.g-main .f-sign{
+	position: absolute;
+	top: 60px;
+	right: 100px;
+	width: 7%;
+}
+.g-main .f-sign i{
+	color: #ac9455;
+	padding: 3px 15px 3px 10px;
+}
+.g-main .f-sign .bars{
+	display: inline-block;
+	height: 50px;
+}
+.g-main .f-sign .m-menu{
+	width: 60%;
+	position: absolute;
+	left: 54px;
+	margin-top: 10px;
+	display: none;
+	background: #F9FAFA;
+}
+.g-main .f-sign .bars:hover .m-menu{
+	display: block;
+}
+.g-main .f-sign .m-menu a{
+	display: inline-block;
+	font-size: 14px;
+	color: #ac9455;
+	margin-bottom: 10px;
+}
+.g-main .f-sign .m-menu a:hover{
+	color: #00A8D8;
+}
+
+
+/*登录窗口*/
+.g-main .m-login{
+	width: 38%;
+	height: 380px;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: -0px 20px 25px #64717a;
+	margin: 0 auto;
+}
+.g-main .m-login p:nth-of-type(1),
+.g-main .m-login p:nth-of-type(3){
+	color: #b29b60;
+	font-family:sans-serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+.g-main .m-login p:nth-of-type(1){
+	padding: 65px 20% 13px 20%;
+}
+.g-main .m-login p:nth-of-type(3){
+	margin: 26px 370px 15px 20%;
+}
+.g-main .m-login p:nth-of-type(2) input,
+.g-main .m-login p:nth-of-type(4) input{
+	width: 70%;
+	height: 45px;
+	background: #212121;
+	border-radius: 20px;
+	margin-left: 17%;
+	border: none;
+	color: #fff;
+	text-align: center;
+}			
+.g-main .m-login p:nth-of-type(5) input[type="submit"]{
+	width: 125px;
+	height: 40px;
+	background: #ac9455;
+	color: #fff;
+	font-size: 11px;
+	font-weight: bold;
+	border-radius: 20px;
+	margin: 40px 25px 65px 18%;
+	border: none;
+}	
+.g-main .m-login p:nth-of-type(5) .pwd{
+	font-size: 13px;
+	margin-right: 20px;
+	margin-left: 30px;
+}
+.g-main .m-login p:nth-of-type(5) a{
+	font-size: 13px;
+	color: #bead81;
+}
+#username,#password{
+	font-size: 20px;
+}
+.m-login p label span{
+	position: absolute;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	top: 2px;
+	left: 4px;
+	border: 2px solid #ac9455;
+}
+#check{
+	margin-right: 10px;
+}
+
+
+/*底部*/
+.g-main .f-foot h4{
+	text-align: center;
+	margin-top: 60px;
+	font-weight: 100;
+	font-size: 13px;
+}
+.g-main .f-foot a{
+	color: #fff;
+}
+
+
+
+
+/*媒体查询*/
+@media (max-width: 992px) {
+	.g-main .f-sign{
+		display: none;
+	}
+}

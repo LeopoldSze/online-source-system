@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.min.css" />
+		<script src="js/jquery-3.1.1.js"></script>
+		<script src="js/jquery.tmpl.js"></script>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/share.css" />
+		<link rel="stylesheet" href="css/cutline.css" />
+		<link rel="stylesheet" href="css/user.css" />
+		<link rel="stylesheet" href="css/alert.css" />
+		<link rel="stylesheet" href="css/footer.css" />
+		<link rel="stylesheet" href="css/top.css" />
+	</head>
+
+	<body>
+		<div class="g-main">
+
+			<!--导航-->
+			<div class="m-nav">
+				<!--logo标志-->
+				<div class="u-logo">
+					<span class="logo1">M</span>
+					<span class="logo2">ovies</span>
+					<span class="logo1">P</span>
+					<span class="logo2">ro</span>
+				</div>
+				<ul>
+					<li>
+						<a href="home.html">主页</a>
+					</li>
+					<li>
+						<a href="movie.html">电影</a>
+						<div class="u-menu1">
+							<a href="moviekind.html">分类</a>
+						</div>
+					</li>
+					<li>
+						<a href="cinema.html">影院</a>
+					</li>
+					<li>
+						<a href="music.html">音乐</a>
+					</li>
+					<li>
+						<a href="contact.html">联系我们</a>
+					</li>
+					<li class="active">
+						<div id="userarea">
+							<img src="imgs/home/photo1.png" alt="" />
+							<a href="user.html">User</a>
+						</div>
+						<div class="u-menu">
+							<a href="user.html">个人中心</a>
+							<a href="javascript:" id="exit">退出登录</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<!--主体-->
+			<div class="m-main">
+
+				<!--头部-->
+				<div class="header"></div>
+				<!--头部模板-->
+				<script id="userinfo" type="text/x-jquery-tmpl">
+					<!--背景-->
+					<img src="" id="bg">
+					<!--头像-->
+					<img src="${photo}" id="userphoto" />
+					<span id="name">${acc}</span>
+					<i class="fa fa-angle-double-down" id="modify"></i>
+					<div class="info">
+						<h3>个人信息修改</h3>
+						<p>密码：<input type="text" id="upass"/></p>
+						<p>头像：<input type="text" id="uphoto"/></p>
+						<p>电话：<input type="text" id="utel"/></p>
+						<p>邮箱：<input type="text" id="umail"/></p>
+						<button id="save">保存修改</button>
+						<i class="fa fa-close" id="close"></i>
+					</div>
+				</script>
+
+				<!--个人收藏-->
+				<ul class="collection">
+					<h3>个人收藏</h3>
+				</ul>
+				<!--模板-->
+				<script id="collinfo" type="text/x-jquery-tmpl">
+					<li>
+						<img src="${src}" alt="" />
+						<a href="javascript:">${name}</a>
+					</li>
+				</script>
+
+				<!--订单信息-->
+				<div class="orders">
+					<input type="button" value="查看订单" id="open" /><i class="fa fa-angle-double-down" id="show"></i>
+
+					<div class="hide">
+						<p class="title">
+							<span>商品</span>
+							<span>单价</span>
+							<span>数量</span>
+							<span>小计</span>
+							<input type="button" value="去购物车" id="link"/>
+						</p>
+
+						<div class="orderinfo">
+						</div>
+						<!--电影票模板-->
+						<script id="moviesinfo" type="text/x-jquery-tmpl">
+							<ul class="orderlists">
+								<li>
+									<img src="${movieimg}" alt="" />
+									<a href="movie.html">${moviename}</a>
+									<br />
+									<span>${seats}</span>
+								</li>
+								<li>
+									<span>￥</span>
+									<span class="money">${money/tickets}</span>
+								</li>
+								<li>
+									<input type="text" class="num1" value="${tickets}" readonly="readonly" />
+								</li>
+								<li>
+									<span class="price" style="color: #FE423F;">${money}</span>
+								</li>
+							</ul>
+						</script>
+						<!--影城卡模板-->
+						<script id="cardinfo" type="text/x-jquery-tmpl">
+							<ul class="orderlists">
+								<li>
+									<img src="${cardimg}" alt="" />
+									<a href="movie.html">${cardinfo}</a>
+								</li>
+								<li>
+									<span>￥</span>
+									<span class="money">${cardprice}</span>
+								</li>
+								<li>
+									<input type="text" class="num1" value="1" readonly="readonly" />
+								</li>
+								<li>
+									<span class="price" style="color: #FE423F;">${cardprice}</span>
+								</li>
+							</ul>
+						</script>
+						<!--会员卡模板-->
+						<script id="vipinfo" type="text/x-jquery-tmpl">
+							<ul class="orderlists">
+								<li>
+									<img src="${vipimg}" alt="" />
+									<a href="movie.html">${vipinfo}</a>
+								</li>
+								<li>
+									<span>￥</span>
+									<span class="money">${vipprice}</span>
+								</li>
+								<li>
+									<input type="text" class="num1" value="1" readonly="readonly" />
+								</li>
+								<li>
+									<span class="price" style="color: #FE423F;">${vipprice}</span>
+								</li>
+							</ul>
+						</script>
+						<!--资源模板-->
+						<script id="shopinfo" type="text/x-jquery-tmpl">
+							<ul class="orderlists">
+								<li>
+									<img src="${src}" alt="" />
+									<a href="movie.html">${name}</a>
+								</li>
+								<li>
+									<span>￥</span>
+									<span class="money">${price}</span>
+								</li>
+								<li>
+									<input type="text" class="num1" value="1" readonly="readonly" />
+								</li>
+								<li>
+									<span class="price" style="color: #FE423F;">${price}</span>
+								</li>
+							</ul>
+						</script>
+						
+						
+						<!--收起-->
+						<input type="button" value="收起" id="pick"/>
+					</div>
+
+				</div>
+
+				<!--媒体展示-->
+				<div class="media">
+					<video src="imgs/video/Taylor Swift - ME.mp4" autoplay="autoplay" controls="controls" loop="loop"></video>
+				</div>
+
+			</div>
+			
+			<!--底部-->
+			<div class="m-footer">
+				<h3>Record Farm</h3>
+				<span>ⓒ2019 Recordfarm Inc.</span>
+				<a href="javascript:">关于我们</a>
+				<a href="javascript:">隐私</a>
+				<a href="javascript:">服务条款</a>
+				<a href="javascript:">cookie</a>
+				<a href="javascript:">版权保护政策</a>
+				<a href="javascript:">广告投递</a>
+				<a href="javascript:">背景</a>
+			</div>
+			
+			<!--回到顶部-->
+			<i class="fa fa-chevron-up" id="top"></i>
+
+		</div>
+	</body>
+	<script src="js/users.js"></script>
+	<script src="js/alert.js"></script>
+	<script src="js/user.js"></script>
+	<script src="js/top.js"></script>
+</html>

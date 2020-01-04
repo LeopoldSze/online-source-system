@@ -1,0 +1,10 @@
+/*回到顶部*/
+#top{
+	font-size: 30px;
+	color: #fff;
+	opacity: 0.4;
+	cursor: pointer;
+	position: fixed;
+	right: 1%;
+	top: 85%;
+}	

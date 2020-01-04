@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<script src="js/jquery-3.1.1.js"></script>
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/signin.css" />
+		<link rel="stylesheet" href="css/alert.css" />	
+	</head>
+	<body>
+		<div class="g-main">
+			<!--头部-->
+			<h3>登录</h3>			
+			<div class="f-sign">
+				<a href="javascript:">
+					<input type="text" id="area"/>
+					<i class="fa fa-search" id="search"></i>
+				</a>
+				<div class="bars">
+					<a href="javascript:"><i class="fa fa-bars"></i></a>
+					<div class="m-menu">
+						<a href="signup.html">注册</a><br />
+						<a href="javascript:">忘记密码</a>
+					</div>
+				</div>					
+			</div>
+			
+			<!--主体-->
+			<div class="m-login">
+				<p>用户名：</p>
+				<p><input type="text" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name@Gmail.com" id="username"/></p>
+				<p>密码：</p>
+				<p><input type="password" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;............." id="password"/></p>
+				<p>
+					<input type="submit" value="登录" id="login"/>
+					<label><i class="fa fa-square-o" id="check"></i>记住密码</span></label>&nbsp;&nbsp;
+					<span><a href="javascript:">忘记密码?</a></span>
+				</p>
+			</div>
+			
+			<!--底部-->
+			<div class="f-foot">
+				<h4>没有注册?<a href="signup.html">&nbsp;&nbsp;注册</a></h4>
+			</div>
+		</div>
+	</body>
+	<script src="js/signin.js"></script>
+</html>

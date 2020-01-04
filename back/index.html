@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-3.1.1.js"></script>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="Bootstrap3Nav/css/style.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/alert.css" />
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<title>Movie Pro后台管理系统</title>
+	</head>
+
+	<body>
+		<div id="wrapper">
+			
+	        <div class="overlay"></div>
+	    
+	        <!-- 侧边栏 -->
+	        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+	            <ul class="nav sidebar-nav">
+	                <li class="sidebar-brand">
+	                    <a href="javascript:">Movie Pro后台</a>
+	                </li>
+	                <li class="sidebar-brand">
+	                    <a href="index.html"><i class="fa fa-fw fa-home"></i>主页</a>
+	                </li>
+	                <!--下拉-->
+	                <li class="sidebar-brand dropdown">
+	                  	<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> 用户管理 <span class="caret"></span></a>
+	                  	<ul class="dropdown-menu menu1" role="menu">
+		                    <li><a href="userlist.html" target="win">查看用户</a></li>
+		                    <li><a href="useradd.html" target="win">添加用户</a></li>
+	                  	</ul>
+	                </li>
+	                <li class="sidebar-brand dropdown">
+	                  	<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> 资源管理 <span class="caret"></span></a>
+	                  	<ul class="dropdown-menu menu2" role="menu">
+		                    <li><a href="sourcelist.html" target="win">查看资源</a></li>
+		                    <li><a href="javascript:" target="win">添加资源</a></li>
+	                  	</ul>
+	                </li>
+	                <li class="sidebar-brand dropdown">
+	                  	<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> 订单管理 <span class="caret"></span></a>
+	                  	<ul class="dropdown-menu menu3" role="menu">
+		                    <li><a href="orderlist.html" target="win">查看订单</a></li>
+		                    <li><a href="javascript:" target="win">添加订单</a></li>
+	                  	</ul>
+	                </li>
+	                <li class="sidebar-brand dropdown">
+	                  	<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> 统计管理 <span class="caret"></span></a>
+	                  	<ul class="dropdown-menu menu4" role="menu">
+		                    <li><a href="datalist.html" target="win">查看统计</a></li>
+		                    <li><a href="javascript:" target="win">添加统计</a></li>
+	                  	</ul>
+	                </li>
+	            </ul>
+	        </nav>
+	
+	        <!-- 页面内容 -->
+	        <div id="page-content-wrapper">
+	          	<button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+	            	<span class="hamb-top"></span>
+	            	<span class="hamb-middle"></span>
+	            	<span class="hamb-bottom"></span>
+	          	</button>
+	            <div class="container">
+	            	<iframe name="win" src="welcome.html" width="95%" height="600px" frameborder="0"></iframe>                
+	            </div>
+	        </div>
+	
+	    </div>
+ 
+	<script>
+		$(document).ready(function () {
+		  var trigger = $('.hamburger'),
+		      overlay = $('.overlay'),
+		     isClosed = false;
+
+		    trigger.click(function () {
+		      hamburger_cross();      
+		    });
+
+		    function hamburger_cross() {
+		      if (isClosed == true) {          
+		        overlay.hide();
+		        trigger.removeClass('is-open');
+		        trigger.addClass('is-closed');
+		        isClosed = false;
+		      } else {   
+		        overlay.show();
+		        trigger.removeClass('is-closed');
+		        trigger.addClass('is-open');
+		        isClosed = true;
+		      }
+		  }
+		  
+		  $('[data-toggle="offcanvas"]').click(function () {
+		        $('#wrapper').toggleClass('toggled');
+		  });  
+		});
+	</script>
+		
+	</body>
+
+</html>

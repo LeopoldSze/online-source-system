@@ -1,0 +1,19 @@
+.u-share{
+	display: inline-block;
+	width: 110px;
+	cursor: pointer
+}
+.u-share i,.u-icon i{
+	display: inline-block;
+	width: 33px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.u-share i:hover,.u-icon i:hover{
+	color: #02A388;
+}
+.u-icon{
+	display: none;
+	cursor: pointer;
+}

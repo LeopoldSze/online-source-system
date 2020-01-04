@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+		<script src="js/jquery-3.1.1.js"></script>
+		<script src="js/jquery.tmpl.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+		<link rel="stylesheet" thref="datatables/css/jquery.dataTables-1.10.13.css">
+		<!-- 与bootstrap整合的样式 -->
+		<link rel="stylesheet" href="datatables/css/dataTables.bootstrap-1.10.13.css" />
+		<script type="text/javascript" src="datatables/js/jquery.dataTables-1.10.13.js"></script>
+		<script type="text/javascript" src="datatables/js/dataTables.bootstrap-1.10.13.js"></script>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/userlist.css" />
+		<title>显示用户</title>
+	</head>
+	<body>
+		
+		<h3 class="page-header">用户信息</h3>
+			<table id="tab1" class="table  table-borderd table-hover" style="text-align: center;">
+				<thead>
+					<tr class="info1">
+						<th>用户编号</th>
+						<th>用户账号</th>
+						<th>密码</th>
+						<th>头像</th>
+						<th>电话</th>
+						<th>邮箱</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				
+				<tbody id="usersList"></tbody>
+				<!--新建模板-->
+				<script type="text/x-jquery-tmpl" id="userTemp">
+					<tr class="trs">
+						<td class="uid">${id}</td>
+						<td>${acc}</td>
+						<td>${pass}</td>
+						<td>${photo}</td>
+						<td>${tel}</td>
+						<td>${mail}</td>
+						<td>
+							<button class="btn btn-success glyphicon glyphicon-pencil edit"> 编辑</button>
+							<button class="btn btn-danger glyphicon glyphicon-trash del"> 删除</button>
+						</td>
+					</tr>
+				</script>
+			</table>
+			
+			<div class="info">
+				<h3>个人信息修改</h3>
+				<p>账号：<input type="text" id="uname"/></p>
+				<p>密码：<input type="text" id="upass"/></p>
+				<p>头像：<input type="text" id="uphoto"/></p>
+				<p>电话：<input type="text" id="utel"/></p>
+				<p>邮箱：<input type="text" id="umail"/></p>
+				<button id="save">保存修改</button>
+				<i class="fa fa-close" id="close"></i>
+			</div>
+			
+			<div class="sear">
+				<input type="text" id="val"/><input type="button" value="搜索" id="sear" class="btn btn-primary"/>
+			</div>
+			
+			<table id="tab2" class="table  table-borderd table-hover" style="text-align: center;">
+				<thead>
+					<tr class="info2">
+						<th>用户编号</th>
+						<th>用户账号</th>
+						<th>密码</th>
+						<th>头像</th>
+						<th>电话</th>
+						<th>邮箱</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				
+				<tbody id="usersList1"></tbody>
+				<!--新建模板-->
+				<script type="text/x-jquery-tmpl" id="userTemp1">
+					<tr class="trs">
+						<td class="uid">${id}</td>
+						<td>${acc}</td>
+						<td>${pass}</td>
+						<td>${photo}</td>
+						<td>${tel}</td>
+						<td>${mail}</td>
+						<td>
+							<button class="btn btn-success glyphicon glyphicon-pencil edit"> 编辑</button>
+							<button class="btn btn-danger glyphicon glyphicon-trash del"> 删除</button>
+						</td>
+					</tr>
+				</script>
+			</table>
+		
+	</body>
+	<script>
+		$(function() {
+			$.ajax({
+				type: "get",
+				url: "http://localhost:8080/users/all",
+				async: false,
+				success: function(data) {
+					//根据模板写入数据
+					$("#userTemp").tmpl(data).appendTo("#usersList");
+				}
+			});
+			
+			$('#tab1').DataTable({
+		    	language: {
+			        "sProcessing": "处理中...",
+			        "sLengthMenu": "显示 _MENU_ 项结果",
+			        "sZeroRecords": "没有匹配结果",
+			        "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+			        "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+			        "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+			        "sInfoPostFix": "",
+			        "sSearch": "搜索:",
+			        "sEmptyTable": "表中数据为空",
+			         "oPaginate": {
+			            "sFirst": "首页",
+			            "sPrevious": "上页",
+			            "sNext": "下页",
+			            "sLast": "末页"
+			        }		       
+		        },
+				lengthMenu:[ [3,5,10,-1],[3,5,10,"所有"] ],
+				dom:'<"top"f>t<"bottom"lpi>'
+		    });
+	
+		});
+		
+		//弹出修改框
+		var uid;
+		$("#usersList").on("click",".edit",function(){
+			$(".info").slideDown(300);
+			uid = $(this).parent().siblings().eq(0).text();
+			var acc = $(this).parent().siblings().eq(1).text();
+			var pass = $(this).parent().siblings().eq(2).text();
+			var photo = $(this).parent().siblings().eq(3).text();
+			var tel = $(this).parent().siblings().eq(4).text();
+			var mail = $(this).parent().siblings().eq(5).text();
+			$("#uname").val(acc);
+			$("#upass").val(pass);
+			$("#uphoto").val(photo);
+			$("#utel").val(tel);
+			$("#umail").val(mail);
+			
+		});
+		
+		//关闭修改框
+		$("#close").click(function(){
+			$(".info").slideUp(300);
+		});
+		
+		//保存修改
+		$("#save").click(function(){
+			var newinfo = {};
+			newinfo.id = uid;
+			newinfo.acc = $("#uname").val();
+			newinfo.pass = $("#upass").val();
+			newinfo.photo = $("#uphoto").val();
+			newinfo.tel = $("#utel").val();
+			newinfo.mail = $("#umail").val();
+			$.ajax({
+				type:"post",
+				url:"http://localhost:8080/users/updateuserinfo",
+				contentType:"application/json;charset=utf-8",
+				data:JSON.stringify(newinfo),
+				async: true,
+				success:function(data){
+					if(data == null || data == ""){
+						alert("修改失败，请检查！");
+						return false;
+					}else{
+						setTimeout("alert('修改成功！')", 500);
+						$(".info").slideUp(300);
+						//修改缓存
+						sessionStorage.setItem("userinfo",JSON.stringify(newinfo));
+						setTimeout("window.location.reload()",1000);
+					}
+				}
+			});
+			
+		});
+		
+		
+		//删除用户
+		$("#usersList").on("click",".del",function(){
+			var uid = $(this).parent().siblings().eq(0).text();
+			var flag = window.confirm("确认删除该条记录吗？");
+			if(flag){
+				$.ajax({
+					type:"get",
+					url:"http://localhost:8080/users/deloneuser?uid="+uid,
+					async:true,
+					success:function(data){
+						alert(data);
+					}
+				});
+				setTimeout("window.location.reload()",1000);
+			}else{
+				return false;
+			}
+		});
+		
+		//查询用户
+		$("#sear").click(function(){
+			$("#usersList1").empty();
+			var word = $("#val").val();
+			$.ajax({
+				type:"get",
+				url:"http://localhost:8080/users/search?word="+word,
+				async:true,
+				success:function(data){
+					$("#userTemp1").tmpl(data).appendTo("#usersList1");
+				}
+			});
+		})
+	</script>
+</html>

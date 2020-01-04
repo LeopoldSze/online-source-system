@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>观看</title>
+	<link rel="stylesheet" href="css/awesome/css/font-awesome.min.css" />
+	<script src="js/jquery-3.1.1.js"></script>
+	<script src="js/jquery.tmpl.js"></script>
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/nav.css"/>
+	<link rel="stylesheet" href="css/share.css" />
+	<link rel="stylesheet" href="css/cutline.css"/>
+	<link rel="stylesheet" href="css/alert.css"/>
+	<link rel="stylesheet" href="css/top.css" />
+	<link rel="stylesheet" href="css/footer.css" />
+	<link rel="stylesheet" href="css/watch.css" />
+</head>
+<body>
+	
+	<div class="g-main" id="main">
+		
+		<!--导航-->
+		<div class="m-nav">
+			<!--logo标志-->
+			<div class="u-logo">
+				<span class="logo1">M</span>
+				<span class="logo2">ovies</span>
+				<span class="logo1">P</span>
+				<span class="logo2">ro</span>
+			</div>
+			<ul>
+				<li class="active"><a href="home.html">主页</a></li>
+				<li>
+					<a href="movie.html">电影</a>
+					<div class="u-menu1">
+						<a href="moviekind.html">分类</a>
+					</div>
+				</li>
+				<li><a href="cinema.html">影院</a></li>
+				<li>
+					<a href="music.html">音乐</a>
+				</li>
+				<li><a href="contact.html">联系我们</a></li>
+				<li>
+					<div id="userarea">
+						<img src="imgs/home/photo1.png" alt="" />
+						<a href="user.html">User</a>
+					</div>					
+					<div class="u-menu">
+						<a href="user.html">个人中心</a>
+						<a href="javascript:" id="exit">退出登录</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<!--头部-->
+		<div class="header">
+			
+			<div class="videolists">
+				<span class="arr arr_left"><</span>
+				<div class="all">
+					<ul class="top" id="list1">
+					</ul>
+					<!--新建模板-->
+					<script id="lists1" type="text/x-jquery-tmpl">
+						<li class="video">
+							<video src="${src}"></video>
+							<img src="${cover}" class="backg" />
+							<a href="javascript:">${title}</a>
+						</li>
+					</script>
+					
+					<ul class="top" id="list2">
+					</ul>
+					<!--新建模板-->
+					<script id="lists2" type="text/x-jquery-tmpl">
+						<li class="video">
+							<video src="${src}"></video>
+							<img src="${cover}" class="backg" />
+							<a href="javascript:">${title}</a>
+						</li>
+					</script>
+					
+				</div>
+				<span class="arr arr_right">></span>
+			</div>
+			<!--播放视频-->			
+			<video src="" controls="controls" autoplay="autoplay" loop="loop" id="disp"></video>
+			<!--购买会员卡-->
+			<ul class="pay">
+				<li class="vipinfo">
+		 			<h3>开通会员</h3>
+		 			<img src="imgs/movie/vip.png" alt="" />
+		 			<p>
+		 				<input type="button" value="19.9包月" class="vip"/>
+		 				<input type="button" value="199包年" class="vip"/>
+		 			</p>		 			
+		 		</li>
+			</ul>
+			<button id="enter">去结算</button>
+		</div>
+		
+		
+		<!--底部-->
+		<div class="m-footer">
+			<h3>Record Farm</h3>
+			<span>ⓒ2019 Recordfarm Inc.</span>
+			<a href="javascript:">关于我们</a>
+			<a href="javascript:">隐私</a>
+			<a href="javascript:">服务条款</a>
+			<a href="javascript:">cookie</a>
+			<a href="javascript:">版权保护政策</a>
+			<a href="javascript:">广告投递</a>
+			<a href="javascript:">背景</a>
+		</div>
+		
+		<!--回到顶部-->
+		<i class="fa fa-chevron-up" id="top"></i>
+		 		
+</body>
+<script src="js/users.js"></script>
+<script src="js/share.js"></script>
+<script src="js/top.js"></script> 
+<script src="js/alert.js"></script>
+<script src="js/watch.js"></script>
+<script>
+	
+</script>
+</html>

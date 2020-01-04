@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+		<script src="js/jquery-3.1.1.js"></script>
+		<script src="js/jquery.tmpl.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" thref="datatables/css/jquery.dataTables-1.10.13.css">
+		<!-- 与bootstrap整合的样式 -->
+		<link rel="stylesheet" href="datatables/css/dataTables.bootstrap-1.10.13.css" />
+		<script type="text/javascript" src="datatables/js/jquery.dataTables-1.10.13.js"></script>
+		<script type="text/javascript" src="datatables/js/dataTables.bootstrap-1.10.13.js"></script>
+		<title>添加用户</title>
+		<style>
+			body{
+				width: 90%;
+				margin: 0 auto;
+			}
+			table,th{
+				text-align: center;
+			}
+			.outer{
+				margin-top: 70px;
+				padding: 4%;
+				border: 1px solid #02A388;
+				box-shadow: 5px 5px 8px #ccc;
+				border-radius: 3%;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<h3 class="page-header">添加用户</h3>
+			
+			<div class="outer">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="add_name" class="col-sm-2 control-label col-sm-offset-1">账号</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" id="add_name" placeholder="请输入用户名：">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="add_pass" class="col-sm-2 control-label col-sm-offset-1">密码</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" id="add_pass" placeholder="请输入密码：">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="add_photo" class="col-sm-2 control-label col-sm-offset-1">头像</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" id="add_photo" placeholder="请输入头像地址：">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="add_tel" class="col-sm-2 control-label col-sm-offset-1">电话</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" id="add_tel" placeholder="请输入电话：">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="add_mail" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" id="add_mail" placeholder="请输入邮箱：">
+						</div>
+					</div>				
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-5">
+							<button type="button" class="btn btn-info" id="add">添加用户信息</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		
+	</body>
+	<script>
+		$("#add").click(function(){
+			var acc = $("#add_name").val();
+			var pass =  $("#add_pass").val();
+			var photo =  $("#add_photo").val();
+			var tel =  $("#add_tel").val();
+			var mail =  $("#add_mail").val();
+			var info = {};
+			info.acc = acc;
+			info.pass = pass;
+			info.photo = photo;
+			info.tel = tel;
+			info.mail = mail;
+			//判断信息是否补全
+			if(info.acc=="" || info.acc==null || info.pass=="" || info.pass==null ||  info.photo ==null || info.photo =="" || info.tel=="" || info.tel==null || info.mail=="" || info.mail==null){
+				alert("请填写完整信息！");
+				return false;
+			}else{
+				$.ajax({
+					type:"post",
+					url:"http://localhost:8080/users/regis",
+					contentType:"application/json;charset=utf-8",
+					data:JSON.stringify(info),
+					async: true,
+					success:function(data){
+						if(data == null || data == ""){
+							alert("账号已存在，请重新输入！");
+							return false;
+						}else{
+							alert("添加成功，欢迎您！");
+							setTimeout("window.location.reload()",1000);
+						};
+					}
+				});
+			};
+			
+		});
+	</script>
+</html>

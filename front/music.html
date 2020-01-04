@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>音乐</title>
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+		<script src="js/jquery-3.1.1.js"></script>
+		<script src="js/jquery.tmpl.js"></script>
+		<link rel="stylesheet" type="text/css" href="chajian/css/solid.css" />
+		<link rel="stylesheet" href="chajian/css/style.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/alert.css" />
+		<link rel="stylesheet" href="css/music.css" />
+		<link rel="stylesheet" href="css/top.css" />
+		
+	</head>
+
+	<body>
+		<div class="g-main">
+			<!--导航-->
+			<div class="m-nav">
+				<!--logo标志-->
+				<div class="u-logo">
+					<span class="logo1">M</span>
+					<span class="logo2">ovies</span>
+					<span class="logo1">P</span>
+					<span class="logo2">ro</span>
+				</div>
+				<ul>
+					<li>
+						<a href="home.html">主页</a>
+					</li>
+					<li>
+						<a href="movie.html">电影</a>
+						<div class="u-menu1">
+							<a href="moviekind.html">分类</a>
+						</div>
+					</li>
+					<li>
+						<a href="cinema.html">影院</a>
+					</li>
+					<li class="active">
+						<a href="music.html">音乐</a>
+					</li>
+					<li>
+						<a href="contact.html">联系我们</a>
+					</li>
+					<li>
+						<div id="userarea">
+							<img src="imgs/home/photo1.png" alt="" />
+							<a href="user.html">User</a>
+						</div>					
+						<div class="u-menu">
+							<a href="user.html">个人中心</a>
+							<a href="javascript:" id="exit">退出登录</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<!--头部-->
+			<div class="m-header">
+				<div class="intr">
+					<h3>MUSIC&nbsp;&nbsp;<span>MARKET</span></h3>
+					<h2>聆.&nbsp;&nbsp;听.</h2>
+					<h2>专为艺术&nbsp;&&nbsp;Fans</h2>
+				</div>
+			</div>
+
+			<!--最新热门-->
+			<div class="hot">
+				<h3>最新热门</h3>
+				<ul id="audios">
+				</ul>
+				<!--新建模板-->
+				<script id="audiolist" type="text/x-jquery-tmpl">
+					<li>
+						<input type="hidden" id="${id}"/>
+						<img src="${img}" alt="" />
+						<span class="icons">
+							<i class="fa fa-play-circle watch"></i>
+							<i class="fa fa-heart-o like"></i>
+							<i class="fa fa-cart-plus buy"></i>
+						</span>
+						<a href="javascript:" >${singer}</a>
+						<a href="javascript:" class="name">${name}</a>
+					</li>
+				</script>
+				
+			</div>
+
+			<!--排行榜-->
+			<div class="brands">
+				<h3>排行榜</h3>
+				<ul id="kind1">
+					<img src="imgs/music/2.JPG" alt="" />
+				</ul>		
+				<ul id="kind2">
+					<img src="imgs/music/3.JPG" alt="" />
+				</ul>
+				<ul id="kind3">
+					<img src="imgs/music/4.JPG" alt="" />
+				</ul>
+				<ul id="kind4">
+					<img src="imgs/music/5.JPG" alt="" />
+				</ul>
+				<!--模板-->
+				<script id="kindslist" type="text/x-jquery-tmpl">
+					<li>
+						<span class="num" style="width: 20%;height: 70px;line-height: 70px; text-align: center;">${id}</span>
+						<span class="listname">${name}</span>
+						<span>${singer}</span>
+					</li>
+				</script>
+			</div>
+
+			<!--播放器-->
+			<div id="app-cover">
+				<div id="player">
+					<div id="player-track">
+						<div id="album-name"></div>
+						<div id="track-name"></div>
+						<div id="track-time">
+							<div id="current-time"></div>
+							<div id="track-length"></div>
+						</div>
+						<div id="s-area">
+							<div id="ins-time"></div>
+							<div id="s-hover"></div>
+							<div id="seek-bar"></div>
+						</div>
+					</div>
+					<div id="player-content">
+						<div id="album-art">
+						</div>
+						<!--模板-->
+						<script id="audioimg" type="text/x-jquery-tmpl">
+							<img src="${img}" id="${'_'+id}" />
+						</script>
+						<div id="player-controls">
+							<div class="control">
+								<div class="button" id="play-previous">
+									<i class="fas fa-backward"></i>
+								</div>
+							</div>
+							<div class="control">
+								<div class="button" id="play-pause-button">
+									<i class="fas fa-play"></i>
+								</div>
+							</div>
+							<div class="control">
+								<div class="button" id="play-next">
+									<i class="fas fa-forward"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--底部-->
+			<div class="m-footer">
+				<h3>Record Farm</h3>
+				<span>ⓒ2019 Recordfarm Inc.</span>
+				<a href="javascript:">关于我们</a>
+				<a href="javascript:">隐私</a>
+				<a href="javascript:">服务条款</a>
+				<a href="javascript:">cookie</a>
+				<a href="javascript:">版权保护政策</a>
+				<a href="javascript:">广告投递</a>
+				<a href="javascript:">背景</a>
+			</div>
+			
+			<!--回到顶部-->
+			<i class="fa fa-chevron-up" id="top"></i>
+			
+		</div>
+	</body>
+	<script src="js/users.js"></script>
+	<script src="chajian/js/index.js"></script>
+	<script src="js/alert.js"></script>
+	<script src="js/music.js"></script>
+	<script src="js/top.js"></script>
+</html>

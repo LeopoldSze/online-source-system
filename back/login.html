@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理员登录</title>
+		<script src="js/jquery-3.1.1.js"></script>
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/alert.css" />
+	</head>
+	<body>
+		<div class="main">
+			<div class="login">
+				<h3>管理员登录</h3>
+				<p>账号：<input type="text" id="username"/></p>
+				<p>密码：<input type="password" id="pass"/></p>
+				<button id="login">登录</button>
+				<span>忘记密码？</span>
+			</div>
+		</div>		
+	</body>
+	<script src="js/alert.js"></script>
+	<script>
+		//键盘监听登录
+		$("#pass").keydown(function(event){
+			var username = $("#username").val();
+			var passwd = $("#pass").val();
+			if(username == "admin" && passwd == "123" && event.keyCode == 13){
+				alert("登录成功！");
+				setTimeout("window.location = 'index.html'",500);
+			}
+		})
+		
+		//点击登录
+		$("#login").click(function(){
+			var username = $("#username").val();
+			var passwd = $("#pass").val();
+			if(username == "admin" && passwd == "123"){
+				alert("登录成功！");
+				setTimeout("window.location = 'index.html'",500);
+			}else{
+				alert("登录失败，请重试！");
+			}
+		})
+			
+	
+	</script>
+</html>

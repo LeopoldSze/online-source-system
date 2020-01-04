@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>统计管理</title>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/echarts.js"></script>
+    <style>
+    	body{
+    		width: 90%;
+    		margin: 0 auto;
+    		background: #fff;
+    	}
+        #users,#sources{
+        	float: left;
+        	margin-top: 10px;
+        	margin-left: 1%;
+            width: 45%;
+            height: 280px;
+        }
+        #tickets{
+        	float: left;
+        	height: 280px;
+        	width: 90%;
+        	margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div id="users"></div>
+	    <div id="sources"></div>
+	    <div id="tickets"></div>
+	</div>
+    
+<script>
+	//普通用户与VIP用户数量
+    function showData1(obj,typeName,title){
+		var obj1 = document.getElementById(obj);
+		var myChart = echarts.init(obj1,typeName);
+		myChart.setOption({
+			title: {text: title},
+			tooltip:{},
+			xAxis:{data:[]},
+			yAxis: {},
+			series: [{
+				name:"数量",
+				type:typeName,
+				data:[],
+				barWidth : 50,
+				itemStyle: {
+				 	normal:{
+                        color:function(params) {
+	                        //自定义颜色
+	                        var colorList = ['#abcdef', '#D84C29', '#0000ff', '#ff00ff'];
+	                        return colorList[params.dataIndex]
+                        }
+	                }
+				}
+			}]
+		})
+		//使用刚指定的配置项和数据显示图表
+		$.getJSON("http://localhost:8080/users/vipnum",function(data){
+			var xData = ['普通用户','VIP用户'];
+			var yData = data;
+			myChart.setOption({
+				xAxis:{data:xData},
+				series: [{name:"数量",data:yData}]
+			})	
+		})
+	}
+	showData1("users","bar","普通用户数量与VIP用户数量");
+	
+	//各年份电影数量
+	function showData2(obj,typeName,title){
+		var obj1 = document.getElementById(obj);
+		var myChart = echarts.init(obj1,typeName);
+		myChart.setOption({
+			title: {text: title},
+			tooltip:{},
+			series: [{
+				name:"数量",
+				type:typeName,
+				data:[],
+				itemStyle: {
+				 	normal:{
+                        color:function(params) {
+	                        //自定义颜色
+	                        var colorList = ['#abcdef', '#D84C29', '#0866E3', '#ff00ff'];
+	                        return colorList[params.dataIndex]
+                        }
+	                }
+				}
+			}]
+		})
+		//使用刚指定的配置项和数据显示图表
+		$.getJSON("http://localhost:8080/movienum",function(data){
+			var dataList=[];
+			var year = [2017,2018,2019];
+			for(var i=0; i<data.length;i++){
+				dataList.push({value:data[i],name:year[i]});
+			}
+			
+			myChart.setOption({
+				series: [{name:"数量",data:dataList}]
+			})	
+		}); 
+	}
+	showData2("sources","pie","电影年份数量");
+	
+	//电影订单数量
+	function showData3(obj,title){
+		var obj1 = document.getElementById(obj);
+		var myChart = echarts.init(obj1);
+		myChart.setOption({
+	        tooltip:{
+	            trigger: 'axis',
+	            axisPointer: {
+	                type: 'cross',
+	                crossStyle: {
+	                    color: '#999'
+	                }
+	            }
+	        },
+	        xAxis: [{
+	            type:'category',
+	            data: ['复仇者联盟4','正义联盟','海王','毒液','哥斯拉2','蜘蛛侠：英雄远征'],
+	            axisPointer:{
+	                type:'shadow'
+	            }
+	        }],
+	        yAxis: [{
+	            type:'value',
+	            name:'购票数',
+	            min: 0,
+	            max: 12,
+	            interval: 1,
+	            axisLabel: {
+	                formatter: '{value}'
+	            }
+	        }],
+	        series: [{
+	            name:'复仇者联盟4',
+	            type:'line',
+	            data:[]
+	        },{
+	            name:'正义联盟',
+	            type:'line',
+	            data:[]
+	        },{
+	            name:'海王',
+	            type:'line',
+	            data:[]
+	        },{
+	            name:'毒液：致命守护者',
+	            type:'line',
+	            data:[]
+	        },{
+	            name:'哥斯拉2：怪兽之王',
+	            type:'line',
+	            data:[]
+	        },{
+	            name:'蜘蛛侠：英雄远征',
+	            type:'line',
+	            data:[]
+	        }]
+	    });
+		//使用刚指定的配置项和数据显示图表
+		$.getJSON("http://localhost:8080/kindtickets",function(data){
+			var dataList=[];
+			for(var i=0; i<data.length;i++){
+				dataList.push({value:data[i]});
+			}
+			
+			myChart.setOption({
+				series: [{name:"数量",data:dataList}]
+			})	
+		}); 
+	}
+	showData3("tickets","电影年份数量");
+
+</script>
+</body>
+</html>

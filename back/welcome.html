@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-3.1.1.js"></script>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="Bootstrap3Nav/css/style.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/alert.css" />
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<title>欢迎页</title>
+		<style>
+			h1{
+				color: #fff;
+			}
+			.lists{
+				width: 44%;
+				height: 200px;
+				border: 1px solid #fff;
+				text-align: center;
+				float: left;
+				margin: 20px 3%;
+				background: #fff;
+				border-radius: 10px
+			}
+			.lists i{
+				margin: 30px 0px;
+				color: #503E77;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+            	<h1 class="page-header">欢迎进入Movie Pro后台管理系统！</h1>  
+               	<div class="lists">
+               		<i class="fa fa-4x fa-user-circle-o"></i>
+               		<br />
+	               	<a  class="btn btn-primary btn-lg" href="userlist.html" target="win">用户管理</a>
+               	</div>
+                <div class="lists">
+                	<i class="fa fa-4x fa-file-video-o"></i>
+                	<br />
+                	<a  class="btn btn-success btn-lg" href="sourcelist.html" target="win">资源管理</a>                	
+                </div>
+                <div class="lists">
+                	<i class="fa fa-4x fa-cart-plus"></i>
+                	<br />
+                	<a  class="btn btn-warning btn-lg" href="orderlist.html" target="win">订单管理</a>
+                </div>
+                <div class="lists">
+                	<i class="fa fa-4x fa-bar-chart"></i>
+                    <br />
+                	<a class="btn btn-danger btn-lg" href="datalist.html" target="win">统计管理</a>
+                </div>
+               	                        
+            </div>
+        </div>
+	</body>
+</html>

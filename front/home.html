@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>主页</title>
+	<link rel="stylesheet" href="css/awesome/css/font-awesome.min.css" />
+	<script src="js/jquery-3.1.1.js"></script>
+	<script src="js/jquery.tmpl.js"></script>
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/nav.css"/>
+	<link rel="stylesheet" href="css/home.css" />
+	<link rel="stylesheet" href="css/share.css" />
+	<link rel="stylesheet" href="css/cutline.css"/>
+	<link rel="stylesheet" href="css/alert.css"/>
+	<link rel="stylesheet" href="css/top.css" />
+</head>
+<body>
+	<div class="g-main" id="main">
+		<!--导航-->
+		<div class="m-nav">
+			<!--logo标志-->
+			<div class="u-logo">
+				<span class="logo1">M</span>
+				<span class="logo2">ovies</span>
+				<span class="logo1">P</span>
+				<span class="logo2">ro</span>
+			</div>
+			<ul>
+				<li class="active"><a href="home.html">主页</a></li>
+				<li>
+					<a href="movie.html">电影</a>
+					<div class="u-menu1">
+						<a href="moviekind.html">分类</a>
+					</div>
+				</li>
+				<li><a href="cinema.html">影院</a></li>
+				<li>
+					<a href="music.html">音乐</a>
+				</li>
+				<li><a href="contact.html">联系我们</a></li>
+				<li>
+					<div id="userarea">
+						<img src="imgs/home/photo2.jpg">
+						<a href="user.html">User</a>
+					</div>					
+					<div class="u-menu">
+						<a href="user.html">个人中心</a>
+						<a href="javascript:" id="exit">退出登录</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<!--头部-->
+		<div class="m-slide">
+			
+			<!--轮播框-->
+			<div class="m-pics" id="pics">
+				<!--轮播-->
+			</div>
+			<!--新建模板-->
+			<script id="slideImgs" type="text/x-jquery-tmpl">
+				<img src="${imgpath}" class="img">
+			</script>
+			
+			<!--指示按钮-->
+			<div class="buttons">
+	            <span class="on"></span>
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	        </div>
+	        
+			<!--指示箭头-->
+			<a href="javascript:" class="u-arrow u-arrow-left" id="pre">&lt;</a>
+			<a href="javascript:" class="u-arrow u-arrow-right" id="next">&gt;</a>
+			
+			<!--信息框-->
+			<div class="u-intr">
+				<span>LATEST</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="u-green">ON</span>
+				<span>LINE</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="u-green">SO</span>
+				<span>URCES</span>
+				<br />
+				<button type="button" id="watch">在线观看</button>	
+				<button type="button" id="movie">购票观看</button>					
+			</div>
+			
+			<!--分享按钮-->
+			<div class="m-share">
+				<span class="u-share">
+					<i class="fa fa-share-alt" id="share"></i>
+					<i class="fa fa-heart-o" id="like"></i>
+					<i class="fa fa-ellipsis-v" id="more"></i>
+				</span>
+				<br />
+				<span class="u-icon">
+					<i class="fa fa-qq"></i>
+					<i class="fa fa-weixin"></i>
+					<i class="fa fa-weibo"></i>
+				</span>
+			</div>
+		</div>
+		
+		<!--主体1-->
+		<div class="m-title">
+			<h3>最近更新</h3>
+		</div>
+			
+		<div class="m-show">
+			
+			<!--左侧-->
+			<div class="left" id="left"></div>
+			<!--新建模板-->
+			<script id="homeleft" type="text/x-jquery-tmpl">
+				<img src="${imgsrc}" alt="" />
+				<span class="a0 movie">
+					<i class="fa fa-play-circle watch"></i>
+				</span>
+				<div class="txt">
+					<h3>${title}</h3>
+					<span style="color: #02A388;">故事简介：</span>
+					<span>${descri}</span>
+					<span style="color: #02A388;">上映日期：</span>
+					<span>${relea}</span>
+					<br />
+					<span style="color: #02A388;">类型：</span>
+					<span>${kinds}</span>
+					<br />
+					<span style="color: #02A388;">评分：</span>
+					<span>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-half-o"></i>
+						${score}
+					</span>
+				</div>
+			</script>
+			
+			<!--右侧-->
+			<div class="right">
+				<ul id="right"></ul>
+				<!--新建模板-->
+				<script id="homeright" type="text/x-jquery-tmpl">
+					<li>
+						<input type="hidden" id="${id}"/>
+						<img src="${imgsrc}" alt="" />
+						<span class="a movie">
+							<i class="fa fa-play-circle watch"></i>
+							<i class="fa fa-heart-o like"></i>
+							<i class="fa fa-cart-plus buy"></i>
+						</span>
+						<h4>${name}</h4>
+						<span>${year}</span>
+						<br />
+						<span>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half-o"></i>
+							${score}
+						</span>
+					</li>
+				</script>
+				
+			</div>			
+		</div>
+		
+		
+		
+		<!--主体2-->
+		<div class="m-title">
+			<h3>为你推荐</h3>
+		</div>
+		
+		<div class="m-mid">
+			
+			<!--上部-->
+			<div class="m-rec" id="rec">
+				
+				<!--动画-->
+				<div class="anime">
+					
+					<!--播放部件-->	
+				 	<div class="u-leftshow" id="btn1" >
+				 		<i class="fa fa-flash fa-4x"></i>
+				 		<span>Shzam!</span>				 		
+				 	</div>
+				 	
+				 	<!--视频-->
+				 	<div class="m-video">
+				 		<video src="imgs/video/言叶之庭预告篇.mp4"  loop="loop" id="video"></video>
+				 		<br />
+				 		<div class="playline">
+				 		</div>
+				 		<div class="controllers">
+				 			<i class="fa fa-play" id="play"></i>
+				 			<i class="fa fa-pause" id="pause"></i>
+				 			<i class="fa fa-arrows-alt" id="alt"></i>
+				 		</div>
+				 		<i class="fa fa-close" id="close"></i>
+				 	</div>
+				 	
+				 	<!--canvas动画与图片-->
+				 	<canvas id="light" width="250px" height="250px"></canvas>
+				 	
+				</div>
+
+			 	
+			</div>
+			<!--新建模板-->
+			<script id="recinfo" type="text/x-jquery-tmpl">
+				<!--展示图片-->
+				<img src="${recsrc}" id="showimg"/>
+				<!--中间介绍信息-->
+			 	<div class="u-midshow">
+			 		<h3>${name}</h3>
+			 		<p>${background}</p>
+			 		
+			 		<!--分享按钮-->
+					<div class="m-share share1">
+						<span class="u-share1">
+							<i class="fa fa-share-alt" id="share1"></i>
+							<i class="fa fa-heart-o" id="like1"></i>
+							<i class="fa fa-ellipsis-v" id="more1"></i>
+						</span>
+						<br />
+						<span class="u-icon1">
+							<i class="fa fa-qq"></i>
+							<i class="fa fa-weixin"></i>
+							<i class="fa fa-weibo"></i>
+						</span>
+					</div>
+					
+			 	</div>		 				 	
+			 	<!--右侧奖项信息-->
+			 	<div class="u-rightshow">
+			 		<p>获得奖项···</p>
+			 		<img src="${awardsrc}" alt="" />
+			 	</div>
+			</script>
+			
+			<!--分隔线-->
+			<div class="cutline"></div>			
+			
+			<!--下部-->
+			<div class="m-about">
+				<ul id="recmovie"></ul>
+				<!--新建模板-->
+				<script id="recmovie1" type="text/x-jquery-tmpl">
+					<li>
+						<img src="${imgsrc}" class="recimg"/>
+						<span>${name}</span>
+				 		<span>${year}</span>
+						<span>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half-o"></i>
+						</span>
+					</li>
+				</script>
+				
+			</div>
+		
+			 
+		</div>
+		
+		
+		<!--底部-->
+		<div class="m-footer">
+			<dl>
+				<dt><a href="javascript:">发布日期</a></dt>
+				<dd><a href="javascript:">2019</a></dd>
+				<dd><a href="javascript:">2018</a></dd>
+				<dd><a href="javascript:">2017</a></dd>
+				<dd><a href="javascript:">2016</a></dd>
+				<dd><a href="javascript:">2015</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="moviekind.html">相关电影</a></dt>
+				<dd><a href="javascript:">冒险</a></dd>
+				<dd><a href="javascript:">喜剧</a></dd>
+				<dd><a href="javascript:">动作</a></dd>
+				<dd><a href="javascript:">爱情</a></dd>
+				<dd><a href="javascript:">恐怖</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="javascript:">我们的服务</a></dt>
+				<dd><a href="movie.html">购票</a></dd>
+				<dd><a href="javascript:">付费观看</a></dd>
+				<dd><a href="javascript:">开通VIP</a></dd>
+				<dd><a href="javascript:">购买专辑</a></dd>
+				<dd><a href="javascript:">开通影城卡</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="music.html">相关音乐</a></dt>
+				<dd><a href="javascript:">最新</a></dd>
+				<dd><a href="javascript:">乐库</a></dd>
+				<dd><a href="javascript:">歌单</a></dd>
+				<dd><a href="javascript:">专辑</a></dd>
+				<dd><a href="javascript:">歌手</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="contact.html">联系我们</a></dt>
+				<dd><a href="javascript:">官方电话</a></dd>
+				<dd><a href="javascript:">官方邮箱</a></dd>
+				<dd><a href="javascript:">官方地址</a></dd>
+				<dd><a href="javascript:">官方媒体</a></dd>
+				<dd><a href="javascript:">官方社区</a></dd>
+			</dl>
+		</div>
+		
+		<!--回到顶部-->
+		<i class="fa fa-chevron-up" id="top"></i>
+		
+	</div>
+		 		
+</body>
+<script src="js/users.js"></script>
+<script src="js/home.js"></script>
+<script src="js/share.js"></script>
+<script src="js/slide.js"></script>
+<script src="js/top.js"></script> 
+<script src="js/alert.js"></script>
+<script>
+	
+</script>
+</html>
